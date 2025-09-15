@@ -1,0 +1,33 @@
+-- Table Convention
+CREATE TABLE IF NOT EXISTS Convention (
+    idConvention INT PRIMARY KEY AUTO_INCREMENT,
+    nomDemandeur VARCHAR(100) NOT NULL,
+    codePostal VARCHAR(10),
+    ville VARCHAR(100),
+    interlocuteur1 VARCHAR(100),
+    fonction1 VARCHAR(100),
+    mail1 VARCHAR(100),
+    interlocuteur2 VARCHAR(100),
+    dateInitiale DATE
+);
+
+-- Table Materiel
+CREATE TABLE IF NOT EXISTS Materiel (
+    idMateriel INT PRIMARY KEY AUTO_INCREMENT,
+    numInventaire VARCHAR(50) UNIQUE NOT NULL,
+    marque VARCHAR(100),
+    numSerie VARCHAR(100),
+    nombre INT,
+    typeDemande VARCHAR(100)
+);
+
+-- Table d'attribution (historique des affectations)
+CREATE TABLE IF NOT EXISTS Attribution (
+    idAttribution INT PRIMARY KEY AUTO_INCREMENT,
+    idConvention INT NOT NULL,
+    idMateriel INT NOT NULL,
+    remisLe DATE,
+    repriseLe DATE,
+    FOREIGN KEY (idConvention) REFERENCES Convention(idConvention),
+    FOREIGN KEY (idMateriel) REFERENCES Materiel(idMateriel)
+);
