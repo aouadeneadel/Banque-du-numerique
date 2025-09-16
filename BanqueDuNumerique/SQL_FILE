@@ -1,3 +1,14 @@
+-- Crée la base de donnée
+CREATE DATABASE IF NOT EXISTS BanqueDuNumerique;
+
+-- En tant qu'administrateur (root)
+CREATE USER 'root'@'localhost' IDENTIFIED BY 'BN1234';
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON BanqueDuNumerique.* TO 'root'@'localhost';
+
+FLUSH PRIVILEGES;
+
+
 -- Table Convention
 CREATE TABLE IF NOT EXISTS Convention (
     idConvention INT PRIMARY KEY AUTO_INCREMENT,
@@ -23,10 +34,11 @@ CREATE TABLE IF NOT EXISTS Materiel (
 
 -- Table d'attribution (historique des affectations)
 CREATE TABLE IF NOT EXISTS Attribution (
-    idConvention INT NOT NULL PRIMARY KEY,
-    idMateriel INT NOT NULL PRIMARY KEY,
+    idConvention INT NOT NULL,
+    idMateriel INT NOT NULL,
     remisLe DATE,
     repriseLe DATE,
+    PRIMARY KEY (idConvention, idMateriel),
     FOREIGN KEY (idConvention) REFERENCES Convention(idConvention),
     FOREIGN KEY (idMateriel) REFERENCES Materiel(idMateriel)
 );
