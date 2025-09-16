@@ -23,9 +23,8 @@ CREATE TABLE IF NOT EXISTS Materiel (
 
 -- Table d'attribution (historique des affectations)
 CREATE TABLE IF NOT EXISTS Attribution (
-    idAttribution INT PRIMARY KEY AUTO_INCREMENT,
-    idConvention INT NOT NULL,
-    idMateriel INT NOT NULL,
+    idConvention INT NOT NULL PRIMARY KEY,
+    idMateriel INT NOT NULL PRIMARY KEY,
     remisLe DATE,
     repriseLe DATE,
     FOREIGN KEY (idConvention) REFERENCES Convention(idConvention),
