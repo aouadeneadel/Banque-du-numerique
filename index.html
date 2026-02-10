@@ -1,27 +1,31 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <title>Téléchargement de PDF</title>
-        style.css
-    </head>
-    <body>
-    
-        <div class="container">
-            <h1>Téléchargement des documents PDF</h1>
-            <p>Cliquez sur un bouton pour télécharger le document.</p>
-    
-            <div class="card">
-                <h3>Mode opératoire - Mise à jour Linux</h3>
-                <button onclick="downloadPDF('Mode_opératoire_MAJ_Linux (1).pdf')">Télécharger</button>
-            </div>
-    
-            <div class="card">
-                <h3>Mode opératoire - Changement n° de session</h3>
-                <button onclick="downloadPDF('Mode opératoire changement numéro de session (1).pdf')">Télécharger</button>
-            </div>
+<head>
+    <meta charset="UTF-8">
+    <title>Téléchargement de PDF</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Téléchargement des documents PDF</h1>
+        <p>Cliquez sur un bouton pour télécharger le document.</p>
+
+        <div class="card">
+            <h3>Mode opératoire - Mise à jour Linux</h3>
+            <button type="button" onclick="downloadPDF('Mode_operatoire_MAJ_Linux.pdf')">
+                Télécharger
+            </button>
         </div>
-    
-        <script src="script.js">
-    </body>
+
+        <div class="card">
+            <h3>Mode opératoire - Changement n° de session</h3>
+            <button type="button" onclick="downloadPDF('Mode_operatoire_changement_numero_session.pdf')">
+                Télécharger
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
 </html>
